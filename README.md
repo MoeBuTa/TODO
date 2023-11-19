@@ -7,7 +7,14 @@
 
 ## create react app
 
-
 create-react-app
 [document](https://github.com/facebook/create-react-app)
 
+`yarn create react-app todoapp`
+
+`cd todoapp`
+
+`yarn start`
+
+## update packages
+`yarn install`
