@@ -7,5 +7,7 @@
 
 ## create react app
 
-[document](https://create-react-app.dev/docs/getting-started/)
+
+create-react-app
+[document](https://github.com/facebook/create-react-app)
 
