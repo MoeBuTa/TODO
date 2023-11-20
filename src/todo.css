@@ -9,7 +9,7 @@
 }
 
 .app-container .prompt-container {
-    background-color: #466a82;
+    background-color: #696666;
     padding: 20px 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -51,7 +51,7 @@
     font-size: 0.8rem;
     background-color: #aaa;
     color: #fff;
-    border: 0px;
+    border: 0;
     border-radius: 0;
     display: inline-block;
     position: relative;
@@ -59,8 +59,8 @@
 
 .react-datepicker__header {
     text-align: center;
-    background-color: #3e82cf;
-    border-bottom: 0px;
+    background-color: #2456c9;
+    border-bottom: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding-top: 8px;
@@ -69,8 +69,8 @@
 }
 
 .react-datepicker__today-button {
-    background: #3e82cf;
-    border-top: 0px;
+    background: #2456c9;
+    border-top: 0;
     cursor: pointer;
     text-align: center;
     font-weight: bold;
