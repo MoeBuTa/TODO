@@ -1,49 +1,108 @@
-import { useState } from "react";
+import {useState} from "react";
+import {Container, Row, Col, Form, Button, Alert, InputGroup} from "react-bootstrap";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../todo.css"
+
 
 var tasks = []
 
 const Todo = () => {
-  const [err, setErr] = useState(false);
-  const [text, setText] = useState("")
-  const [date, setDate] = useState(0)
+    // const [err, setErr] = useState(false);
+    const [text, setText] = useState("")
+    const [date, setDate] = useState(new Date());
 
 
-  const handleUpdate = async () => {
-    try {
-      if (text.length > 0 && date.length > 0) {
-        let task = {
-          "name": text,
-          "date": date
+    const handleUpdate = async () => {
+        console.log(text)
+        console.log(date.toLocaleString())
+        if (text.length > 0) {
+            let task = {
+                "name": text,
+                "date": date
+            }
+            tasks.push(task)
         }
-        tasks.push(task)
-      } else {
-        throw new Error("Error!")
-      }
-    } catch (err) {
-      setErr(true);
-    }
-    setDate(0)
-    setText("")
-  }
 
-  return (
-    <div className='todo'>
-      <h1>To do list</h1>
-      <div className='events'>
-        <input type="text" name="" id="" placeholder='Type tasks here...' onChange={e => setText(e.target.value)} value={text} />
-        <input type="number" name="" id="" onChange={e => setDate(e.target.value)} value={date} min="0" oninput="validity.valid||(value='');" />
-        <button onClick={handleUpdate}>write it down</button>
-        {err && <span>You have to put correct text and date...</span>}
-      </div>
-      <div className='tasks'>
-        {Object.entries(tasks)?.sort((a, b) => a[1].date - b[1].date).map((tasks) => (
-          <div className="taskcontent" >
-            <p>{tasks[1].name} {tasks[1].date}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
+        console.log(tasks)
+        // setDate(0)
+        setText("")
+    }
+
+
+    const handleDone = async () => {
+        // if (text.length > 0) {
+        //     let task = {
+        //         "name": text,
+        //         "date": date
+        //     }
+        //     tasks.push(task)
+        // }
+        //
+        // console.log(tasks)
+        // // setDate(0)
+        // setText("")
+    }
+
+    return (
+
+        <Container className='app-container'>
+            <h1>To Do List</h1>
+            <Row className='prompt-container'>
+                <Col>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="Tasks">Task</InputGroup.Text>
+                        <Form.Control
+                            type="text"
+                            placeholder="Write a task here..."
+                            aria-label="Tasks"
+                            aria-describedby="basic-addon1"
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                        />
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="date">Deadline</InputGroup.Text>
+                        <DatePicker
+                            selected={date}
+                            onChange={(date) => setDate(date)}
+                            className="form-control"
+                        ></DatePicker>
+                    </InputGroup>
+
+                    <Button variant="primary" onClick={handleUpdate}>Submit</Button>
+                </Col>
+            </Row>
+            <Row className='task-container'>
+                <Col>
+                    {/*{Object.entries(tasks)?.sort((a, b) => a[1].date - b[1].date).map((task, index) => (*/}
+                    {/*    <Alert variant="info" key={index}>*/}
+                    {/*        <p>{task[1].name} {task[1].date.toLocaleDateString()}</p>*/}
+                    {/*    </Alert>*/}
+                    {/*))}*/}
+                    <ol>
+                        {tasks
+                            .sort((a, b) => new Date(a.date) - new Date(b.date))
+                            .map((task, index) => (
+                                <li key={index}>
+                                    <Alert variant="primary" key={index}>
+                                        <p>{task.date.toLocaleDateString()}: <b>{task.name}</b></p>
+                                    </Alert>
+                                    <Button variant="danger" onClick={handleDone}>Done</Button>
+                                </li>
+                            ))}
+                    </ol>
+
+
+                </Col>
+                {/*    </Row>*/}
+                {/*</Container>*/}
+
+
+            </Row>
+        </Container>
+    )
 }
 
 export default Todo

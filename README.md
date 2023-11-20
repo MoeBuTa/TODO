@@ -18,3 +18,17 @@ create-react-app
 
 ## update packages
 `yarn install`
+
+
+
+## notes
+
+react-bootstrap styling not working: 
+
+```js
+// index.js or index.js
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// App.js
+import {Container, Row, Col, Form, Button, Alert, InputGroup} from 'react-bootstrap';
+```

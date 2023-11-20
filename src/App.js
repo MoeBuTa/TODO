@@ -5,7 +5,8 @@ import Todo from "./components/Todo";
 // import React, { createContext } from 'react';
 
 // export const UrlPrefixContext = createContext();
-
+const globalTheme = 'dark';
+document.documentElement.setAttribute('data-bs-theme', globalTheme);
 
 function App() {
 
