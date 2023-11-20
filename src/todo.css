@@ -36,6 +36,11 @@
 /*}*/
 
 
+.app-container .task-container .task-name {
+
+    word-wrap: break-word;
+    font-size: 1.1em;
+}
 
 .react-datepicker-wrapper {
     height: 100%;
@@ -75,7 +80,3 @@
 
 
 
-.alert p {
-    font-size: 1.2em; /* Adjust the font size of the text inside the Alert component */
-    /* Add any other styling you want for the text inside the Alert component */
-}
