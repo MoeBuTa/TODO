@@ -34,7 +34,7 @@ import {Container, Row, Col, Form, Button, Alert, InputGroup} from 'react-bootst
 ```
 
 
-### updating state
+### updating state 
 
 ```jsx
 // Directly setting a new tasks list

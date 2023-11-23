@@ -88,7 +88,7 @@ const Todo = () => {
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="Tasks">Task</InputGroup.Text>
                         <Form.Control
-                            type="text"
+                            as="textarea"
                             placeholder="Write a task here..."
                             aria-label="Tasks"
                             aria-describedby="basic-addon1"
@@ -110,7 +110,7 @@ const Todo = () => {
                 </Col>
             </Row>
             <Row className='task-container'>
-                <p>Tasks remaining: {remainTask}</p>
+                <p><b>Tasks remaining: {remainTask}</b></p>
 
                 <Col>
                     {updateTaskList}
